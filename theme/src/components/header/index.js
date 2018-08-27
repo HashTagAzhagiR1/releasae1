@@ -10,8 +10,9 @@ import HeadMenu from './headMenu';
 const Fragment = React.Fragment;
 
 const Logo = ({ src, onClick, alt }) => (
-	<NavLink className="logo-image" to="/" onClick={onClick}>
-		<img src={src} alt={alt} />
+	<NavLink className="logo-image navbar-brand" to="/" onClick={onClick}>
+		<span className="hashtag">#</span>
+		<span class="azhagi-title">Azhagi</span>
 	</NavLink>
 );
 
@@ -136,7 +137,7 @@ export default class Header extends React.Component {
 				>
 					<div className="container">
 						<div className="columns is-gapless is-mobile header-container">
-							<div className="column is-4">
+							<div className="column is-1">
 								{!showBackButton && (
 									<BurgerButton
 										onClick={this.menuToggle}
@@ -149,7 +150,8 @@ export default class Header extends React.Component {
 							<div className="column is-4 has-text-centered">
 								<Logo src={settings.logo} onClick={this.closeAll} alt="logo" />
 							</div>
-							<div className="column is-4 has-text-right header-block-right">
+							<div className="column is-4 is-1-mobile" />
+							<div className="column is-3 has-text-right header-block-right ">
 								<span
 									className="icon icon-search is-hidden-tablet"
 									onClick={this.searchToggle}
@@ -186,13 +188,53 @@ export default class Header extends React.Component {
 								</div>
 							</div>
 						</div>
-
-						<div className="primary-nav is-hidden-mobile">
-							<HeadMenu
-								categories={categories}
-								location={location}
-								isMobile={false}
-							/>
+						<div className="columns">
+							<div className="column is-2 is-hidden-mobile is-offset-1">
+								<span
+									className="icon icon-search is-hidden-tablet"
+									onClick={this.searchToggle}
+								>
+									<img
+										src="/assets/images/search.svg"
+										alt={text.search}
+										title={text.search}
+										style={{ minWidth: 24 }}
+									/>
+								</span>
+								<SearchBox
+									value={productFilter.search}
+									onSearch={this.handleSearch}
+									className={
+										this.state.mobileSearchIsActive ? 'search-active' : ''
+									}
+								/>
+							</div>
+							<div className="column is-6">
+								<div className="primary-nav is-hidden-mobile">
+									<HeadMenu
+										categories={categories}
+										location={location}
+										isMobile={false}
+									/>
+								</div>
+							</div>
+							<div className="column is-2 is-hidden-mobile">
+								<CartIndicator
+									cart={cart}
+									onClick={this.cartToggle}
+									cartIsActive={this.state.cartIsActive}
+								/>
+								<div
+									className={this.state.cartIsActive ? 'mini-cart-open' : ''}
+								>
+									<Cart
+										cart={cart}
+										deleteCartItem={this.props.deleteCartItem}
+										settings={settings}
+										cartToggle={this.cartToggle}
+									/>
+								</div>
+							</div>
 						</div>
 					</div>
 				</header>

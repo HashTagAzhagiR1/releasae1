@@ -52,14 +52,19 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
-
-.image-gallery-left-nav {
+.image-gallery-fullscreen-button::before, .image-gallery-play-button::before, .image-gallery-left-nav::before, .image-gallery-right-nav::before {
+	color: #d2203e;
+	line-height: .7;
+	text-shadow: 0 2px 2px #1a1a1a;
+	transition: color .2s ease-out;
+}
+/*.image-gallery-left-nav {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%226rem%22%20height%3D%226rem%22%20viewBox%3D%220%200%201000%201000%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M723.1%2C990l43.3-43.3L320.2%2C500L766.3%2C53.3L723.1%2C10L233.7%2C500L723.1%2C990z%22%2F%3E%3C%2Fsvg%3E");
 }
 
 .image-gallery-right-nav {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%226rem%22%20height%3D%226rem%22%20viewBox%3D%220%200%201000%201000%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M276.9%2C10l-43.3%2C43.3L679.8%2C500L233.7%2C946.7l43.3%2C43.3l489.4-490L276.9%2C10z%22%2F%3E%3C%2Fsvg%3E");
-}
+}*/
 
 .image-gallery-bullets .image-gallery-bullet {
   box-shadow: none;
@@ -91,4 +96,13 @@ Mobile
     font-size: 0.75rem;
     padding: 0.25rem 2rem;
   }
+}
+.carousel-Button{
+	-webkit-box-shadow: 0 11px 13px 6px rgba(0,0,0,.2);
+	background-color: #d2203e;
+	border-radius: 27.5px;
+	box-shadow: 0 11px 13px 6px rgba(0,0,0,.2);
+	height: 7.91%;
+	padding: 30px;
+	width: 15.56%;
 }

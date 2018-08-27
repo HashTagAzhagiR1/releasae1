@@ -48,7 +48,7 @@ export default class CustomProducts extends React.Component {
 			price_to: price_to,
 			sort: sort,
 			fields:
-				'path,id,name,category_id,category_name,sku,images,enabled,discontinued,stock_status,stock_quantity,price,on_sale,regular_price,attributes,tags',
+				'date_created,date_updated,path,id,name,category_id,category_name,sku,images,enabled,discontinued,stock_status,stock_quantity,price,on_sale,regular_price,attributes,tags',
 			limit: limit || 4,
 			offset: 0
 		};

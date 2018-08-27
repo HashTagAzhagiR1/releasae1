@@ -40,15 +40,28 @@ const IndexContainer = props => {
 			<section className="section">
 				<div className="container">
 					<div className="title is-4 has-text-centered">
-						{themeSettings.home_products_title}
+						{themeSettings.home_products_title_new_arrivals}
 					</div>
-					<CustomProducts
-						sku={themeSettings.home_products_sku}
-						sort={themeSettings.home_products_sort}
-						limit={themeSettings.home_products_limit}
-						settings={settings}
-						addCartItem={addCartItem}
-					/>
+					<div className="columns">
+						<div className="column is-half is-offset-one-quarter has-text-centered">
+							{themeSettings.home_products_title_new_arrivals_DESCRIPTION}
+						</div>
+					</div>
+					<div className="container">
+						<div className="columns">
+							<div className="column" />
+							<div className="column is-three-quarters">
+								<CustomProducts
+									sku={themeSettings.home_products_sku}
+									sort={themeSettings.home_products_sort}
+									limit={themeSettings.home_products_limit}
+									settings={settings}
+									addCartItem={addCartItem}
+								/>
+							</div>
+							<div className="column" />
+						</div>
+					</div>
 				</div>
 			</section>
 		</Fragment>
