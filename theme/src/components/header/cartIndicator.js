@@ -10,7 +10,6 @@ const CartCount = ({ cart }) => {
 		return null;
 	}
 };
-
 const CartIcon = ({ cartIsActive }) => {
 	if (cartIsActive) {
 		return (

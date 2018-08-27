@@ -96,8 +96,10 @@ const fillCartItems = cartResponse => {
 
 ajaxRouter.get('/products', (req, res, next) => {
 	let filter = req.query;
+	//console.log('req.query',req.query);
 	filter.enabled = true;
 	api.products.list(filter).then(({ status, json }) => {
+		//console.log('json',json);
 		res
 			.status(status)
 			.header('Cache-Control', PRODUCTS_CACHE_CONTROL)

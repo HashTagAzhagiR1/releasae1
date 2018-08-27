@@ -6,23 +6,22 @@ import * as helper from '../lib/helper';
 
 const renderItem = item => (
 	<div className="image-gallery-image">
-		<NavLink to={item.path || ''}>
-			<img src={item.original} alt={item.title} />
-			<div
-				className="caption"
-				style={{ color: themeSettings.home_slider_color || '#fff' }}
-			>
-				<div className="caption-title">{item.title}</div>
-				<div className="caption-description">{item.description}</div>
-			</div>
-		</NavLink>
+		<img src={item.original} alt={item.title} />
+		<div
+			className="caption"
+			style={{ color: themeSettings.home_slider_color || '#abb' }}
+		>
+			<div className="caption-title">{item.title}</div>
+			<div className="caption-description">{item.description}</div>
+			<span className="carousel-Button">VIEW COLLECTIONS</span>
+		</div>
 	</div>
 );
 
 const HomeSlider = ({ images }) => {
 	if (images && images.length > 0) {
 		const items = images.map(item => ({
-			original: '/assets/images/' + item.image,
+			original: `/assets/images/${item.image}`,
 			title: item.title,
 			description: item.description,
 			path: item.path || '',
@@ -31,17 +30,17 @@ const HomeSlider = ({ images }) => {
 
 		return (
 			<section className="section" style={{ padding: 0 }}>
-				<div className="container">
+				<div>
 					<div className="home-slider">
 						<ImageGallery
 							items={items}
-							lazyLoad={true}
+							lazyLoad
 							showThumbnails={false}
 							slideInterval={2000}
-							showNav={themeSettings.home_gallery_shownav === true}
+							showNav={true}
 							showBullets={images.length > 1}
-							showPlayButton={false}
-							showFullscreenButton={false}
+							showPlayButton={true}
+							showFullscreenButton
 							slideOnThumbnailHover={false}
 							renderItem={renderItem}
 						/>
@@ -49,9 +48,8 @@ const HomeSlider = ({ images }) => {
 				</div>
 			</section>
 		);
-	} else {
-		return null;
 	}
+	return null;
 };
 
 export default HomeSlider;
